@@ -35,6 +35,7 @@ function typeOfEmployee() {
                 break;
             case 'End my team selection':
                 console.log('Newly created Team in new HTML file!');
+                writeToFile();
                 break;
         }
     });
@@ -67,7 +68,7 @@ const newIntern = () => {
         const { name, id, email, school } = internInput;
         const intern = new Intern (name, id, email, school);
 
-        workForce.push(itern);
+        workForce.push(intern);
         typeOfEmployee();
     });
 }
@@ -96,8 +97,8 @@ const newEngineer = () => {
             message: 'What is the github account username for this new engineer?',
         },
     ]).then(engineerInput => {
-        const { name, id, email, school } = engineerInput;
-        const engineer = new Engineer (name, id, email, school);
+        const { name, id, email, github } = engineerInput;
+        const engineer = new Engineer (name, id, email, github);
 
         workForce.push(engineer);
         typeOfEmployee();
@@ -128,11 +129,23 @@ const newManager = () => {
             message: 'What is the office number for this new manager?',
         },
     ]).then(managerInput => {
-        const { name, id, email, school } = managerInput;
-        const manager = new Manager (name, id, email, school);
+        const { name, id, email, officeNumber } = managerInput;
+        const manager = new Manager (name, id, email, officeNumber);
 
         workForce.push(manager);
         typeOfEmployee();
     });
 }
 
+// Creating a new HTML file with user input from prompted questions
+function writeToFile() {
+    const newTeam = display(workForce);
+
+    fs.writeFile("./dist/index.html", newTeam, function (err) {
+        if (err) throw err;
+        console.log("New Team created!");
+    });
+}
+
+// Starts prompts
+typeOfEmployee();
