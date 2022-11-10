@@ -1,6 +1,6 @@
 /* Functions Used to determine the creation of a card */
 
-// Manager Card
+// Display Manager Card
 const createManagerCard = manager => {
     return `
     <div class="card bg-light mb-3" style="max-width: 18rem;">
@@ -25,7 +25,7 @@ const createManagerCard = manager => {
     `
 }
 
-// Engineer Card
+// Display Engineer Card
 const createEngineerCard = engineer => {
     return `
     <div class="card bg-light mb-3" style="max-width: 18rem;">
@@ -50,7 +50,7 @@ const createEngineerCard = engineer => {
     `
 }
 
-// Intern Card
+// Display Intern Card
 const createInternCard = intern => {
     return `
     <div class="card bg-light mb-3" style="max-width: 18rem;">
