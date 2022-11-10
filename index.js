@@ -11,7 +11,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 // Team 
-let Workforce = [];
+let workForce = [];
 
 // To select the type of employee prompt
 function typeOfEmployee() {
@@ -39,3 +39,100 @@ function typeOfEmployee() {
         }
     });
 }
+
+// Prompt questions for the new itern to add them to the team
+const newIntern = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of this new intern?',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the ID number of this new intern?',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is the email address for this new intern?',
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: 'What is the school this new intern is from?',
+        },
+    ]).then(internInput => {
+        const { name, id, email, school } = internInput;
+        const intern = new Intern (name, id, email, school);
+
+        workForce.push(itern);
+        typeOfEmployee();
+    });
+}
+
+// Prompt questions for the new engineer to add them to the team
+const newEngineer = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of this new engineer?',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the ID number of this new engineer?',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is the email address for this new engineer?',
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'What is the github account username for this new engineer?',
+        },
+    ]).then(engineerInput => {
+        const { name, id, email, school } = engineerInput;
+        const engineer = new Engineer (name, id, email, school);
+
+        workForce.push(engineer);
+        typeOfEmployee();
+    });
+}
+
+// Prompt questions for the new manager to add them to the team
+const newManager = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of this new manager?',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the ID number of this new manager?',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is the email address for this new manager?',
+        },
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: 'What is the office number for this new manager?',
+        },
+    ]).then(managerInput => {
+        const { name, id, email, school } = managerInput;
+        const manager = new Manager (name, id, email, school);
+
+        workForce.push(manager);
+        typeOfEmployee();
+    });
+}
+
