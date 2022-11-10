@@ -118,3 +118,5 @@ function createTeam(data) {
     </html>
     `
 }
+
+module.exports = createTeam();

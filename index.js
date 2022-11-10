@@ -4,7 +4,7 @@ const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
 // Link to the create a new HTML
-const display = require('.//src/display');
+const createTeam = require('./src/display');
 
 // Node modules
 const fs = require('fs');
@@ -139,7 +139,7 @@ const newManager = () => {
 
 // Creating a new HTML file with user input from prompted questions
 function writeToFile() {
-    const newTeam = display(workForce);
+    const newTeam = createTeam(workForce);
 
     fs.writeFile("./dist/index.html", newTeam, function (err) {
         if (err) throw err;
