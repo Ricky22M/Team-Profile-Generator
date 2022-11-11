@@ -6,18 +6,18 @@ const createManagerCard = manager => {
     <div class="card bg-light mb-3" style="max-width: 18rem;">
         <div class="card-header text-white bg-primary text-center d-flex flex-column">
             <div class="col">
-                <h3 id="name">${manager.positionIs}</h3>
+                <h3>${manager.positionIs()}</h3>
             </div>
             <div class="col">
-                <h4 id="position">${manager.nameIs}</h4>
+                <h4>${manager.nameIs()}</h4>
             </div>
         </div>
         <div class="card-body">
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${manager.idIs}</li>
-                    <li class="list-group-item">${manager.emailIs}</li>
-                    <li class="list-group-item">${manager.officeNumberIs}</li>
+                    <li class="list-group-item">ID: ${manager.idIs()}</li>
+                    <li class="list-group-item">Email: ${manager.emailIs()}</li>
+                    <li class="list-group-item">Office Number: ${manager.officeNumberIs()}</li>
                 </ul>
             </div>
         </div>
@@ -31,18 +31,18 @@ const createEngineerCard = engineer => {
     <div class="card bg-light mb-3" style="max-width: 18rem;">
         <div class="card-header text-white bg-primary text-center d-flex flex-column">
             <div class="col">
-                <h3 id="name">${engineer.positionIs}</h3>
+                <h3>${engineer.positionIs()}</h3>
             </div>
             <div class="col">
-                <h4 id="position">${engineer.nameIs}</h4>
+                <h4>${engineer.nameIs()}</h4>
             </div>
         </div>
         <div class="card-body">
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${engineer.idIs}</li>
-                    <li class="list-group-item">${engineer.emailIs}</li>
-                    <li class="list-group-item">${engineer.officeNumberIs}</li>
+                    <li class="list-group-item">ID: ${engineer.idIs()}</li>
+                    <li class="list-group-item">Email: ${engineer.emailIs()}</li>
+                    <li class="list-group-item">GitHub: ${engineer.githubIs()}</li>
                 </ul>
             </div>
         </div>
@@ -56,18 +56,18 @@ const createInternCard = intern => {
     <div class="card bg-light mb-3" style="max-width: 18rem;">
         <div class="card-header text-white bg-primary text-center d-flex flex-column">
             <div class="col">
-                <h3 id="name">${intern.positionIs}</h3>
+                <h3>${intern.positionIs()}</h3>
             </div>
             <div class="col">
-                <h4 id="position">${intern.nameIs}</h4>
+                <h4>${intern.nameIs()}</h4>
             </div>
         </div>
         <div class="card-body">
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${intern.idIs}</li>
-                    <li class="list-group-item">${intern.emailIs}</li>
-                    <li class="list-group-item">${intern.officeNumberIs}</li>
+                    <li class="list-group-item">ID: ${intern.idIs()}</li>
+                    <li class="list-group-item">Email: ${intern.emailIs()}</li>
+                    <li class="list-group-item">School: ${intern.schoolIs()}</li>
                 </ul>
             </div>
         </div>
@@ -80,14 +80,14 @@ const employeeTeam = employees => {
     let showEmployees = '';
 
     for (let i = 0; i < employees.length; i++) {
-        if (employees[i].positionIs() === "Manager") {
-            showEmployees = showEmployees + createManagerCard(employees[i])
+        if (employees[i].positionIs() === "Intern") {
+            showEmployees = showEmployees + createInternCard(employees[i])
         }
         if (employees[i].positionIs() === "Engineer") {
             showEmployees = showEmployees + createEngineerCard(employees[i])
         }
-        if (employees[i].positionIs() === "Intern") {
-            showEmployees = showEmployees + createInternCard(employees[i])
+        if (employees[i].positionIs() === "Manager") {
+            showEmployees = showEmployees + createManagerCard(employees[i])
         }
     } return showEmployees;
 }
@@ -119,4 +119,4 @@ function createTeam(data) {
     `
 }
 
-module.exports = createTeam();
+module.exports = createTeam;
