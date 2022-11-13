@@ -1,12 +1,12 @@
 # Team-Profile-Generator
 
-Need help building a workforce team profile webpage? Well as you use this ```Team Profile Generator``` app to build a webpage for your team, you'll find out that building your page is easy as answering a few questions.
+Need help building a workforce team profile webpage? Well as you use this Team Profile Generator app to build a webpage for your team, you'll find out that building your page is easy as answering a few questions.
 
-![Screenshot of Team Profile Generator working webpage](./posts/path/to/img.jpg)
+![Screenshot of Team Profile Generator working webpage](./assets/image/Team-Profile-Generator-Screenshot.png)
 
 ## How It Works
 
-By running the code within node (in the terminal run the command '```node index.js```'), the user will be prompted with questions such as the position of the employee (are they an ```intern```, an ```engineer```, or a ```manager```?), basic information about the employee, (what's their ```name```, ```ID number```, ```email```, etc.), and when the user is finished with building their team they have the option to end their team build proccess. Once the user ends their session of team building, a HTML page will be newly created, and is based off of the user input. When opening the HTML page, you are presented to a page titled "```Team Profile Generator```", a header with the words "```My Team```", and cards created based off of the user input.
+By running the code within node (in the terminal run the command '`node index.js`'), the user will be prompted with questions such as the position of the employee (are they an intern, an engineer, or a manager?), basic information about the employee, (what's their name, ID number, email, etc.), and when the user is finished with building their team they have the option to end their team build proccess. Once the user ends their session of team building, a HTML page will be newly created, and is based off of the user input. When opening the HTML page, you are presented to a page titled "Team Profile Generator", a header with the words "My Team", and cards created based off of the user input.
 
 ## User Story
 
@@ -40,4 +40,4 @@ THEN I exit the application, and the HTML is generated
 
 ## Walkthrough Video
 
-[Walkthrough video of Team Profile Generator](./posts/path/to/img.jpg)
+[Walkthrough video of Team Profile Generator](https://drive.google.com/file/d/1VzoShCNrLwG-cX-gSZFa0xkC-tFZZMU2/view?usp=share_link)
