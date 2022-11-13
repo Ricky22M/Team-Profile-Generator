@@ -1,23 +1,18 @@
 // Using the Intern constructor
-const Intern = require('../lib/intern');
+const Intern = require('../lib/Intern');
 
-// Checks to see if a new intern object was created
 test('creates a new intern object', () => {
-    const intern = new Intern('Ricky', 45, 'rmedina2004@outlook.com', 'UofU');
+    const intern = new Intern('Ricky', 1, 'rmedina2004@outlook.com', 'UofU');
 
     expect(intern.school).toEqual(expect.any(String));
 });
 
-// Checks the value of the school value from schoolIs()
-test('gets the interns school value', () => {
-    const intern = new Intern('Ricky', 45, 'rmedina2004@outlook.com', 'UofU');
+test('checks methods for intern class', () => {
+    const intern = new Intern('Ricky', 1, 'rmedina2004@outlook.com', 'UofU');
 
-    expect(intern.schoolIs()).toEqual(expect.stringContaining(intern.school.toString));
-});
-
-// Checks the position of intern with the positionIs()
-test('gets position of intern', () => {
-    const intern = new Intern('Ricky', 45, 'rmedina2004@outlook.com', 'UofU');
-
-    expect(intern.positionIs()).toEqual("Intern");
+    expect(intern.getName()).toBe(intern.name);
+    expect(intern.getId()).toBe(intern.id);
+    expect(intern.getEmail()).toBe(intern.email);
+    expect(intern.getSchool()).toBe(intern.school);
+    expect(intern.getRole()).toBe('Intern');
 });

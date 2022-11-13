@@ -1,23 +1,23 @@
 /* Functions Used to determine the creation of a card */
 
-// Display Manager Card
-const createManagerCard = manager => {
+// Display Intern Card
+const createInternCard = intern => {
     return `
     <div class="card bg-light mb-3" style="max-width: 18rem;">
         <div class="card-header text-white bg-primary text-center d-flex flex-column">
             <div class="col">
-                <h3>${manager.positionIs()}</h3>
+                <h3>${intern.getRole()}</h3>
             </div>
             <div class="col">
-                <h4>${manager.nameIs()}</h4>
+                <h4>${intern.getName()}</h4>
             </div>
         </div>
         <div class="card-body">
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID: ${manager.idIs()}</li>
-                    <li class="list-group-item">Email: ${manager.emailIs()}</li>
-                    <li class="list-group-item">Office Number: ${manager.officeNumberIs()}</li>
+                    <li class="list-group-item">ID: ${intern.getId()}</li>
+                    <li class="list-group-item">Email: ${intern.getEmail()}</li>
+                    <li class="list-group-item">School: ${intern.getSchool()}</li>
                 </ul>
             </div>
         </div>
@@ -31,18 +31,18 @@ const createEngineerCard = engineer => {
     <div class="card bg-light mb-3" style="max-width: 18rem;">
         <div class="card-header text-white bg-primary text-center d-flex flex-column">
             <div class="col">
-                <h3>${engineer.positionIs()}</h3>
+                <h3>${engineer.getRole()}</h3>
             </div>
             <div class="col">
-                <h4>${engineer.nameIs()}</h4>
+                <h4>${engineer.getName()}</h4>
             </div>
         </div>
         <div class="card-body">
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID: ${engineer.idIs()}</li>
-                    <li class="list-group-item">Email: ${engineer.emailIs()}</li>
-                    <li class="list-group-item">GitHub: ${engineer.githubIs()}</li>
+                    <li class="list-group-item">ID: ${engineer.getId()}</li>
+                    <li class="list-group-item">Email: ${engineer.getEmail()}</li>
+                    <li class="list-group-item">GitHub: ${engineer.getGithub()}</li>
                 </ul>
             </div>
         </div>
@@ -50,24 +50,24 @@ const createEngineerCard = engineer => {
     `
 }
 
-// Display Intern Card
-const createInternCard = intern => {
+// Display Manager Card
+const createManagerCard = manager => {
     return `
     <div class="card bg-light mb-3" style="max-width: 18rem;">
         <div class="card-header text-white bg-primary text-center d-flex flex-column">
             <div class="col">
-                <h3>${intern.positionIs()}</h3>
+                <h3>${manager.getRole()}</h3>
             </div>
             <div class="col">
-                <h4>${intern.nameIs()}</h4>
+                <h4>${manager.getName()}</h4>
             </div>
         </div>
         <div class="card-body">
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID: ${intern.idIs()}</li>
-                    <li class="list-group-item">Email: ${intern.emailIs()}</li>
-                    <li class="list-group-item">School: ${intern.schoolIs()}</li>
+                    <li class="list-group-item">ID: ${manager.getId()}</li>
+                    <li class="list-group-item">Email: ${manager.getEmail()}</li>
+                    <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
                 </ul>
             </div>
         </div>
@@ -77,16 +77,16 @@ const createInternCard = intern => {
 
 // Function used to get the cards together
 const employeeTeam = employees => {
-    let showEmployees = '';
+    let showEmployees = ''
 
     for (let i = 0; i < employees.length; i++) {
-        if (employees[i].positionIs() === "Intern") {
+        if (employees[i].getRole() === "Intern") {
             showEmployees = showEmployees + createInternCard(employees[i])
         }
-        if (employees[i].positionIs() === "Engineer") {
+        if (employees[i].getRole() === "Engineer") {
             showEmployees = showEmployees + createEngineerCard(employees[i])
         }
-        if (employees[i].positionIs() === "Manager") {
+        if (employees[i].getRole() === "Manager") {
             showEmployees = showEmployees + createManagerCard(employees[i])
         }
     } return showEmployees;
@@ -102,18 +102,17 @@ function createTeam(data) {
             <meta charset="UTF-8" />
             <link rel="stylesheet" href="./assets/css/style.css"/>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-            <title>Team Profile</title>
+            <title>Team Profile Generator</title>
         </head>
         <body>
             <header>
-                <h1 class="jumbotron jumbotron-fluid text-center bg-danger text-white">My Team</h1>
+                <h1 class="jumbotron jumbotron-fluid text-center bg-danger text-white col">My Team</h1>
             </header>
             <main>
-                <div class="row">
+                <div class="d-flex justify-content-center col row">
                     ${employeeTeam(data)}
                 </div>
             </main>
-            <script src="./index.js"></script>
         </body>
     </html>
     `

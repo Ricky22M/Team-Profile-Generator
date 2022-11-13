@@ -1,23 +1,19 @@
 // Using the Engineer constructor
-const Engineer = require('../lib/engineer');
+const Engineer = require('../lib/Engineer');
 
 // Checks to see if a new engineer object was created
 test('creates a new engineer object', () => {
-    const engineer = new Engineer('Ricky', 45, 'rmedina2004@outlook.com', 'Ricky22M');
+    const engineer = new Engineer('Ricky', 1, 'rmedina2004@outlook.com', 'Ricky22M');
 
     expect(engineer.github).toEqual(expect.any(String));
 });
 
-// Checks the value of the github value from githubIs()
-test('gets engineer github value', () => {
-    const engineer = new Engineer('Ricky', 45, 'rmedina2004@outlook.com', 'Ricky22M');
+test('checks methods for engineer class', () => {
+    const engineer = new Engineer('Ricky', 1, 'rmedina2004@outlook.com', 'Ricky22M');
 
-    expect(engineer.githubIs()).toEqual(expect.stringContaining(engineer.github.toString));
-});
-
-// Checks the position of engineer with the positionIs()
-test('gets position of engineer', () => {
-    const engineer = new Engineer('Ricky', 45, 'rmedina2004@outlook.com', 'Ricky22M');
-
-    expect(engineer.positionIs()).toEqual("Engineer");
+    expect(engineer.getName()).toBe(engineer.name);
+    expect(engineer.getId()).toBe(engineer.id);
+    expect(engineer.getEmail()).toBe(engineer.email);
+    expect(engineer.getGithub()).toBe(engineer.github);
+    expect(engineer.getRole()).toBe('Engineer');
 });

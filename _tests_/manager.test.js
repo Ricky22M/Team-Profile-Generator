@@ -1,23 +1,18 @@
 // Using the Engineer constructor
-const Manager = require('../lib/manager');
+const Manager = require('../lib/Manager');
 
-// Checks to see if a new manager object was created
 test('creates a new manager object', () => {
-    const manager = new Manager('Ricky', 45, 'rmedina2004@outlook.com', 6);
+    const manager = new Manager('Ricky', 1, 'rmedina2004@outlook.com', 10);
 
-    expect(manager.officeNumber).toEqual(expect.any(String));
+    expect(manager.officeNumber).toEqual(expect.any(Number));
 });
 
-// Checks the value of the officeNumber value from officeNumberIs()
-test('gets manager office number value', () => {
-    const manager = new Manager('Ricky', 45, 'rmedina2004@outlook.com', 6);
+test('checks methods for manager class', () => {
+    const manager = new Manager('Ricky', 1, 'rmedina2004@outlook.com', 10);
 
-    expect(manager.officeNumberIs()).toEqual(expect.stringContaining(manager.officeNumber.toString));
-});
-
-// Checks the position of manager with the positionIs()
-test('gets position of manager', () => {
-    const manager = new Manager('Ricky', 45, 'rmedina2004@outlook.com', 6);
-
-    expect(manager.positionIs()).toEqual("Manager");
+    expect(manager.getName()).toBe(manager.name);
+    expect(manager.getId()).toBe(manager.id);
+    expect(manager.getEmail()).toBe(manager.email);
+    expect(manager.getOfficeNumber()).toBe(manager.officeNumber);
+    expect(manager.getRole()).toBe('Manager');
 });
